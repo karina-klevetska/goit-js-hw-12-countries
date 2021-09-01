@@ -1,13 +1,13 @@
 import debounce from 'lodash.debounce';
+import { info, error } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 
 import fetchCountries from './fetchCountries.js';
 import countryInfoCard from './templates/countryInfoCard.hbs';
 import countriesList from './templates/countriesList.hbs';
 
 const refs = {
-    body: document.querySelector('body'),
     input: document.querySelector('#input'),
-    list: document.querySelector('.countries-list'),
     countryInfo: document.querySelector('.country-info')
 }
 
@@ -27,12 +27,12 @@ const makeCountryMarkup = (data) => {
         refs.countryInfo.insertAdjacentHTML('beforeend', countryCardMarkup);
 
     } else if (data.length > 10) {
-        alert('Too many matches found.Please enter a more specific query!');
+        info('Too many matches found.Please enter a more specific query!');
 
     } else if (data.length >= 2 && data.length <= 10) {
         refs.countryInfo.insertAdjacentHTML('beforeend', countryListMarkup);
     } else {
-        alert('Sorry, we cannot find country for your query :(');
+        error('Sorry, we cannot find country for your query :(');
     };
 }
 
