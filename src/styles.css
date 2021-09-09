@@ -12,16 +12,23 @@ body {
 .input {
   width: 250px;
   height: 50px;
+  padding: 0 10px 0 10px;
   margin-bottom: 30px;
   border: 2px solid rgb(126, 54, 33);
   border-radius: 10px;
+  outline: none;
   background-color: rgba(196, 99, 61, 0);
   color: white;
   font-size: 18px;
 }
 
+.input:hover,
+.input:focus {
+  border: 2px solid rgba(255, 255, 255, 0.808);
+}
+
 .input::placeholder {
-  color: rgba(255, 255, 255, 0.719);
+  color: rgba(255, 255, 255, 0.808);
 }
 
 .country-info {
