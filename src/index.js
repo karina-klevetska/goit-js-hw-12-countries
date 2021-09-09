@@ -27,12 +27,20 @@ const makeCountryMarkup = (data) => {
         refs.countryInfo.insertAdjacentHTML('beforeend', countryCardMarkup);
 
     } else if (data.length > 10) {
-        info('Too many matches found.Please enter a more specific query!');
+        info({
+            text: 'Too many matches found.Please enter a more specific query!',
+            hide: true,
+            delay: 1500
+        });
 
     } else if (data.length >= 2 && data.length <= 10) {
         refs.countryInfo.insertAdjacentHTML('beforeend', countryListMarkup);
     } else {
-        error('Sorry, we cannot find country for your query :(');
+        error({
+            text: 'Sorry, we cannot find country for your query :(',
+            hide: true,
+            delay: 1500
+        });
     };
 }
 
